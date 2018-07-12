@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class robot {
 
     public static void main(String[] args) {
@@ -9,17 +10,15 @@ public class robot {
         int testcases = scanner.nextInt();
         
         for(int t = 1; t < testcases+1; t++){
-        
-        //격자판 크기
+       
         int N = scanner.nextInt()+1;
         int M = scanner.nextInt()+1;
-        //초기 로봇 위치
+        
         int curX = scanner.nextInt();
         int curY = scanner.nextInt();
         int moveX;
         int moveY;
         
-        //격자판 초기화
         int board[][] = new int[M][N];
         for(int i = 1; i < M; i++){
             for(int j = 1; j < N; j++){
@@ -31,24 +30,17 @@ public class robot {
         points += board[curY][curX];
         board[curY][curX] = 0;
         
-
-        //회전판에 칸 갯수
         int moves = scanner.nextInt();
-        //회전판 초기화, 회전판 최대 갯수는 8개이며 양 끝을 추가하여 10개로 초기화, 첫번째 마지막 index의 값은 없음
         int rotate[] = new int [10]; 
         for(int i = 1; i <= moves; i++ ){
             rotate[i] = scanner.nextInt();
         }
-        //회전판 위치
         int movepos = 1;
 
-        //여기서 부터 로봇 이동
         int robotmoves = scanner.nextInt(); //회전판 이동 갯수
         int rotatedir; //회전판 회전 방향 1 - 시계방향 2- 반시계방향
         int steps = 0; //회전판을 돌린 후의 수
-        //로봇 이동 시작
         for(int i = 1; i <= robotmoves; i++){
-            //로봇 한번 이동 (점수계산, 모서리 및 장애물 판단 포함)
             char movedir = scanner.next().charAt(0);
             rotatedir = scanner.nextInt();
             int movesection = scanner.nextInt();
@@ -71,9 +63,7 @@ public class robot {
                 }
                 steps = rotate[movepos];
                 }
-                
             
-            //방향 별 계산
             if(movedir == 'E'){
                 moveX = curX + steps;
                 if(moveX >= N){
@@ -148,65 +138,14 @@ public class robot {
                         board[j][curX] = 0;
                         j++;
                     }
-                    
-                    
                 }
                 curY = moveY;
             }
-        
         }
-
         System.out.println("#"+ t +" "+points+" "+curX+" "+curY);
-        
-        
     }
-    
 }
-
 }
-
-
-
-
-
-// if(scanner.next() == 'E'){
-            
-//     curX += movespos;
-        
-//     }else if(scanner.next() == 'W'){
-//         rotatedir = scanner.nextInt();
-//         if(rotatedir==1){
-//         movepos = moves - ((movepos + scanner.nextInt())%moves);
-//         }else{
-//         movepos = (movepos + scanner.nextInt())%moves;
-//         }
-//     curX -= movespos;
-
-//     }else if(scanner.next() == 'N'){
-//         rotatedir = scanner.nextInt();
-//         if(rotatedir==1){
-//         movepos = moves - ((movepos + scanner.nextInt())%moves);
-//         }else{
-//         movepos = (movepos + scanner.nextInt())%moves;
-//         }
-//     curY -= movespos;
-
-//     }else if(scanner.next() == 'S'){
-//         rotatedir = scanner.nextInt();
-//         if(rotatedir==1){
-//         movepos = moves - ((movepos + scanner.nextInt())%moves);
-//         }else{
-//         movepos = (movepos + scanner.nextInt())%moves;
-//         }
-//     curY += movespos;
-
-//     }
-
-
-
-// 회전판과 로봇 (robot.cpp)
- 
-
 // 문제
 // 가로 N칸, 세로 M칸으로 이루어진 격자판이 주어지고, 그 중 한 개의 칸에 로봇이 존재한다. 로봇은 동(E), 서(W), 남(S), 북(N) 4 방향으로 움직일 수 있다. 각 칸에는 로봇이 얻을 수 있는 점수가 적혀있거나 장애물이 존재한다. 점수는 자연수로 주어지며, 장애물은 -1로 주어진다. 로봇은 움직일 때 마다 자신이 위치해 있는 곳의 점수를 얻게 되고, 해당 칸의 값은 0으로 바뀌게 된다. 로봇의 초기 위치에는 장애물이 존재하지 않으며, 항상 초기 위치에 있는 점수를 얻으며 움직이기 시작한다.
 
