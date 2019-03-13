@@ -1,0 +1,65 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Debug (Launch)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "Division",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-Tobin",
+      "request": "launch",
+      "cwd": "${/Users/DK/Documents/programming/Algorithms/Java}",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "Tobin",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-offset",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "offset",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-seat",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "seat",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-tetris",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "tetris",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "Debug (Attach)",
+      "request": "attach",
+      "hostName": "localhost",
+      "port": 0
+    }
+  ]
+}

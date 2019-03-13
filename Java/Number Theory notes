@@ -1,0 +1,146 @@
+Number Theory lectures(정수론)
+
+- 정수의 성질을 연구하는 분야
+- 약수와 배수 (약수는 특히 정수에 관련되서만 씀)
+    배수는 3.5는 1.2의 배수인가와 같은 질문이 있어 정수에만 국한된 것은 아님.
+
+1. 약수(Divisor)
+- 특정 정수를 나누어 떨어지게 하는 수
+
+2. 약수 구하기 구현
+- 20을 입력받아 모든 약수를 출력하는 프로그램 작성
+
+int main() {
+    int n;
+
+    scanf("%d", &n);
+
+    for(int i = 1; i <= n; i++){
+        //숫자 i가 n의 약수인지 판단
+        if(n % i == 0) 
+            printf("%d, ", i);
+    }
+    printf("\n");
+    return 0;
+}
+
+3. 소수(Prime number)
+- 약수가 1과 자기 자신뿐인 정수
+- 정수론에서 매우 중요한 개념
+- 2 ~ N-1까지 나누어보고 하나라도 나누어떨어진다면 소수가 아님
+
+4. 소수 판별 구현
+- 소수라면 yes, 아니라면 no 출력하는 프로그램 작성
+// 8 : no
+// 7 : yes
+
+#include <stdio.h>
+
+int main()  {
+    bool flag = false;
+    //flag가 true면 소수가 아니라는 말
+    //flag가 false라면 소수라는 말    
+    int n;
+
+    scanf("%d", &n);
+
+
+    for(int i = 2; i <= n-1; i++){
+        if(n % i == 0){
+            flag = true;
+        }
+    }
+    if(flag == true)
+        printf("No\n");
+    else
+        printf("Yes\n");
+
+    return 0;
+}
+
+5. 소인수 분해 (Prime factorization)
+- 숫자 N을 소수의 곱으로 나타냄
+- 60을 소인수 분해하면 2^2 * 3 * 5
+- 소수들의 곱으로 나타내는 
+- 60의 경우 2로 두번 나누면 15가 남는데, 2부터 나누지 말고 3부터 나누면 됨
+- 즉, 2부터 시작해서 차례대로 나눠보는 것.
+- 2,3,5 ...으로 나눌 수 있는 것 모두 나누고 다음 소수로 넘어감
+- 소수 리스트가 없어도 소수를 찾으면 됨
+- 정수로 다 나누어 봐도 결국 소수만 나옴
+- 원리 :
+    60을 가져와서 2로 나누면 30, 2로 나누면 15, 3으로 나누면 5, 그 다음 4로 나누면 
+    이미 앞에서 나누어졌기 때문에 불가능, 그리고 5로 넘어감.
+- 물론 소수로만 나누면 훨씬 빠름(필요한 작업만 연산하기 때문에)
+- 하지만 문제는 소수의 리스트를 미리 뺴놓는게 어려움
+
+6. 소인수 분해 구현
+입력 : 60
+출력 : 2 2 3 5
+i = 2 3 4 5 6 7 8 9 10 ...
+
+#include <stdio.h>
+
+int main() {
+    int n;
+
+    scanf("%d", &n);
+
+    for(int i = 2; n > 1;){
+        //조건식에 n을 넣는 것 유의!
+        if(n % i == 0){
+            printf("%d ", i);
+            n /= i;
+        //근데 2로 한번 더 나눌 수 있으면 i를 증가하면 안되기 때문에
+        //i++를 빼버린다.
+        }
+        else i++;
+        //여기에서 i를 증가시킨다. 
+    }
+    return 0
+}
+
+7. 공약수와 공배수
+최대공약수 - GCD, Greatest Common Divisor
+최소공배수 - LCM, Lowest Common Multiple
+
+8. GCD LCM 구현
+
+// 158 86 72
+// 86 72 14
+// 72 14 2
+// 14 2 0
+
+#include <stdio.h>
+
+int main() {
+    int a, b;
+    int A, B;
+    int GCD, LCM;
+
+    A = a;
+    B = b;
+
+    scan("%d, %d", &a, &b);
+
+    while(1) {
+        int r = a % b;
+
+        if(r==0){
+            GCD = b;
+            break;
+        }
+
+        a = b;
+        b = r;
+    }
+    LCD = (A / GCD) * (B / GCD) * GCD;
+    print("%d\n", GCD);
+    
+    return 0;
+}
+
+LCM
+A B GCD
+A = aG  a = A/G
+B = bG  b = B/G
+L = abG
